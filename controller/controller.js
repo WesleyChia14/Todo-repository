@@ -24,14 +24,24 @@ $(document).ready(function () {
         
     });
 
-    $(document).on("keyup", textinput , function (e) {
-        let KeyCode = e.keyCode;
-        if(KeyCode == 13 && $(this).val() != ""){
+//     $(document).on("keyup", textinput , function (e) {
+//         let KeyCode = e.keyCode;
+//         if(KeyCode == 13 && $(this).val() != ""){
+//           todo = new Todo();
+//           let id = $(this).attr('id');
+//           let text = $(this).val();
+//           todo.editToDo(id,text);
+//     }
+//    });
+
+
+    $(document).on("focusout", textinput , function (e) {
+        if($(this).val() != ""){
           todo = new Todo();
           let id = $(this).attr('id');
           let text = $(this).val();
           todo.editToDo(id,text);
-    }
+        }
    });
 
    $(document).on("dblclick", input, function(){

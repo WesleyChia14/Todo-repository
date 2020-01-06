@@ -35,6 +35,8 @@ $(document).ready(function () {
 //    });
 
 
+
+
     $(document).on("focusout", textinput , function (e) {
         if($(this).val() != ""){
           todo = new Todo();

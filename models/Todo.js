@@ -1,10 +1,23 @@
+ //var ListToDo = [];
+ 
  export class Todo {
-  
+
+  constructor(){
+     var listToDo = localStorage.getItem('listToDos');
+     this.listToDos = [];
+      if(JSON.parse(listToDo)){ 
+        this.listToDos = JSON.parse(listToDo);
+       } 
+  }  
+
+
     addTodo(nameToDo){
         var objToDo = {
           nameToDo: nameToDo,
           statusToDo: false
         }
+
+        
 
         this.listToDos.push(objToDo);
         localStorage.setItem('listToDos', JSON.stringify(this.listToDos));
@@ -39,16 +52,14 @@
       localStorage.setItem('listToDos', JSON.stringify(this.listToDos));
     }
     
-    
-    constructor(){
-      var listToDo = localStorage.getItem('listToDos');
-      this.listToDos = JSON.parse(listToDo) ? JSON.parse(listToDo) : [];
-    } 
-
-     getId (id) {
+    getId (id) {
       var idstodo = id.split("-");
       var idtodo = idstodo[1];
       return idtodo;
     }
+
+    
+
+     
 }
 
